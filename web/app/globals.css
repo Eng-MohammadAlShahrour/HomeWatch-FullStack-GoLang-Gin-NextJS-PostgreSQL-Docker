@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sf-blue: #0A84FF;
+  --sf-green: #30D158;
+  --sf-red: #FF453A;
+  --label-primary: rgba(255, 255, 255, 0.95);
+  --label-secondary: rgba(235, 235, 245, 0.6);
+  --label-tertiary: rgba(235, 235, 245, 0.3);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  background: #000000;
+  color: var(--label-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.25); }
+
+.btn { @apply px-4 py-2 rounded-xl font-medium text-sm transition-all duration-200; }
+.btn-primary { background: var(--sf-blue); color: white; }
+.btn-primary:hover { background: #0071E3; box-shadow: 0 0 24px rgba(10, 132, 255, 0.5); transform: translateY(-1px); }
+.btn-danger { background: rgba(255, 69, 58, 0.12); color: var(--sf-red); }
+.btn-danger:hover { background: rgba(255, 69, 58, 0.2); }
+
+.input {
+  @apply w-full px-4 py-3 rounded-xl text-sm outline-none transition-all;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--label-primary);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.input:focus { border-color: var(--sf-blue); background: rgba(255, 255, 255, 0.07); box-shadow: 0 0 0 4px rgba(10, 132, 255, 0.15); }
+.input::placeholder { color: var(--label-tertiary); }
+
+.card {
+  @apply rounded-2xl p-5 transition-all duration-300;
+  background: rgba(28, 28, 30, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.card:hover { border-color: rgba(255, 255, 255, 0.12); }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fadeIn 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
